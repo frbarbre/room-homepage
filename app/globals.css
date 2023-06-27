@@ -2,26 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.slick-next {
+  right: 0.5px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.slick-prev {
+  right: 70.5px;
+}
+
+@media screen and (min-width: 1200px) {
+  .slick-prev {
+    right: -69.5px;
+  }
+  
+  .slick-next {
+    right: -139.5px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.slick-prev::before {
+  content: url("/icon-angle-left.svg");
+}
+
+.slick-next::before {
+  content: url("/icon-angle-right.svg");
+}
+
+.slick-prev, .slick-next {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  opacity: 1;
+  bottom: -35px;
+  top: auto;
+  left: auto;
+  z-index: 5;
+  transition: all 300ms ease;
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+  background: none;
+  background-color: rgb(69, 69, 69);
+  transition: all 300ms ease;
 }
